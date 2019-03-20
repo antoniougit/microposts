@@ -66,11 +66,12 @@ function deletePost(e) {
     const id = e.target.parentElement.dataset.id;
     if (confirm('Are you sure?')) {
       http.delete(`http://localhost:3000/posts/${id}`)
-        .then(data => {
+        .then(() => {
           ui.showAlert('Post removed!', 'alert alert-success');
           getPosts();
         })
         .catch(error => console.log(error));
+        ui.clearFields();
     }
   }
   e.preventDefault();

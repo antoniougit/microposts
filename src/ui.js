@@ -100,7 +100,9 @@ class UI {
             // Get element to insert before
             const formEnd = document.querySelector('.form-end');
             // Insert cancel button
-            cardForm.insertBefore(button, formEnd);
+            if (!document.querySelector('.post-cancel')) {
+                cardForm.insertBefore(button, formEnd);
+            }
         } else {
             this.postSubmit.textContent = 'Post it!';
             this.postSubmit.className = 'post-submit btn btn-primary btn-block';
